@@ -1,0 +1,15 @@
+res://tiles/tiles.tscn
+res://scenes/world.tscn
+res://scenes/tiles.tscn
+res://scenes/box.tscn
+res://scenes/player.tscn
+res://scripts/player.gd
+res://scenes/enemy.tscn
+res://scripts/enemy.gd
+res://scripts/world.gd
+res://scenes/bullet.tscn
+res://scripts/bullet.gd
+res://scripts/box.gd
+res://scripts/enemy_bullet.gd
+res://scenes/enemy_bullet.tscn
+res://default_bus_layout.tres

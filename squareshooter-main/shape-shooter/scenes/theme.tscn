@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://l3abmlhpfb3v"]
+
+[ext_resource type="AudioStream" uid="uid://cc37lc5u5qcq4" path="res://assets/sfx/theme-song.mp3" id="1_6c00b"]
+
+[node name="Theme" type="AudioStreamPlayer2D"]
+position = Vector2(7, 79)
+stream = ExtResource("1_6c00b")
+autoplay = true
+bus = &"Theme"

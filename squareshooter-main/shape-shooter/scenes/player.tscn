@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4jhci006xmq7"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_ftohn"]
+[ext_resource type="Texture2D" uid="uid://duc5o82hkqruy" path="res://assets/square-16.png" id="2_gu36y"]
+[ext_resource type="Texture2D" uid="uid://cdvvcqrsixy5k" path="res://assets/glow2.png" id="3_tos7h"]
+[ext_resource type="AudioStream" uid="uid://ch74s6cf641f7" path="res://assets/sfx/laser.mp3" id="4_x6148"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56les"]
+size = Vector2(31, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyh7b"]
+size = Vector2(31, 31)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_ftohn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_56les")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_gu36y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 264
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_wyh7b")
+
+[node name="CameraRemoteTransform" type="RemoteTransform2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.518945, 0.262805, 0.26239, 1)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("3_tos7h")
+texture_scale = 4.0
+
+[node name="PlayerShootSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_x6148")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
